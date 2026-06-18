@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/stroomlijn-toolkit/toolkit/">
+<!-- BASE:END -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<!-- SEO Meta Tags -->
+<title>STROOMLIJN Toolkit – AI-tools die gewoon werken</title>
+<meta name="description" content="STROOMLIJN Toolkit – praktische AI-tools voor ondernemers en professionals. Gratis starten, geen installatie, direct bruikbaar." />
+<meta property="og:title" content="STROOMLIJN Toolkit – AI-tools die gewoon werken" />
+<meta property="og:description" content="STROOMLIJN Toolkit – praktische AI-tools voor ondernemers en professionals. Gratis starten, geen installatie, direct bruikbaar." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="STROOMLIJN Toolkit – AI-tools die gewoon werken" />
+<meta name="twitter:description" content="STROOMLIJN Toolkit – praktische AI-tools voor ondernemers en professionals. Gratis starten, geen installatie, direct bruikbaar." />
+<!-- End SEO Meta Tags -->
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="lp-mqjzn0b6-hedet";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  var u=new URL(location.href);var found=null;var changed=false;
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
+
+<script data-gate>
+(function(){
+  var slug='lp-mqjzn0b6-hedet';var apiBase='https://app.stroomlijn.nu';var currency='USD';var presets=[2900,7900];var minAmt=2900;var maxAmt=7900;var thankYouMsg='Bedankt voor je abonnement. Je ontvangt binnen enkele minuten een bevestiging per e-mail met toegang tot alle tools.';
+  var successSubtext='Je abonnement is actief. Je ontvangt een bevestiging per e-mail.';var successBtnLabel='Naar de tools';var successBtnColor='#16a34a';var successRedirect='';
+  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
+  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
+  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
+  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
+  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
+  function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
+  function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  window.__processDonation=function(a,b,c,d){
+    var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
+      email=a.email||'';
+      productName=a.productName||a.label||'';
+      productDescription=a.productDescription||a.description||'';
+      donorName=a.name||a.donorName||'';
+      donorMessage=a.message||a.donorMessage||'';
+      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
+    }else{
+      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
+      var rest=[b,c,d];var nonEmail=[];
+      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
+      donorName=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
+    }
+    if(!email)email=findDonEmail();
+    if(!donorName)donorName=findDonName();
+    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:donorName||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||t('failed'));throw new Error(d.error);}
+    });
+  };
+  window.__donationConfig={currency:currency,presets:presets.map(function(c){return c/100;}),minAmount:minAmt/100,maxAmount:maxAmt/100,formatAmount:fmtD};
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var sidD=urlParams.get('session_id');
+      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var dBtn=document.getElementById('lp-don-success-btn');
+      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://app.stroomlijn.nu/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=5018');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='afQmtF';
+  var apiBase='https://app.stroomlijn.nu';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var sidP=urlParams.get('session_id');
+      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">STROOMLIJN<span>.</span></a>
+  <a href="#prijzen" class="nav-cta">Gratis starten</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">STROOMLIJN Toolkit</div>
+  <h1>AI-tools die<br><em>gewoon werken.</em></h1>
+  <p class="hero-sub">
+    Zeven praktische tools voor ondernemers en professionals. Geen installatie, geen cursus, geen technische kenniss. Je voert in wat je weet, de tool doet de rest.
+  </p>
+  <div class="hero-actions">
+    <a href="#prijzen" class="btn-primary">Gratis starten</a>
+    <a href="#tools" class="btn-ghost">Bekijk de tools</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <span class="hero-stat-num">7</span>
+      <div class="hero-stat-label">tools direct beschikbaar</div>
+    </div>
+    <div>
+      <span class="hero-stat-num">3</span>
+      <div class="hero-stat-label">tools volledig gratis</div>
+    </div>
+    <div>
+      <span class="hero-stat-num">0</span>
+      <div class="hero-stat-label">installaties nodig</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="section-eyebrow">Hoe het werkt</div>
+    <h2 class="section-title">Vier stappen, één resultaat</h2>
+    <p class="section-lead">Je kiest een tool, voert je vraag in, en ontvangt iets bruikbaars. Geen handleiding, geen drempel.</p>
+    <div class="steps">
+      <div>
+        <div class="step-num">01</div>
+        <div class="step-title">Kies een tool</div>
+        <p class="step-desc">Start gratis met één van de drie basistools. Geen account nodig voor de eerste keer.</p>
+      </div>
+      <div>
+        <div class="step-num">02</div>
+        <div class="step-title">Voer je vraag in</div>
+        <p class="step-desc">Elke tool vraagt precies wat hij nodig heeft. Geen leeg veld, geen verwarring.</p>
+      </div>
+      <div>
+        <div class="step-num">03</div>
+        <div class="step-title">Ontvang het resultaat</div>
+        <p class="step-desc">Direct bruikbaar. Kopieer, download of stuur door. Geen omwegen.</p>
+      </div>
+      <div>
+        <div class="step-num">04</div>
+        <div class="step-title">Meer nodig?</div>
+        <p class="step-desc">Activeer alle tools met een abonnement. Maandelijks opzegbaar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <div class="section-inner">
+    <div class="section-eyebrow">De tools</div>
+    <h2 class="section-title">Wat je hier kunt doen</h2>
+    <p class="section-lead">Elk tool is gebouwd voor een concreet werkprobleem. Je betaalt alleen als je meer wil dan de basis.</p>
+
+    <div class="tools-label">Gratis beschikbaar</div>
+    <div class="tools-grid">
+
+      <div class="tool-card tool-card-free">
+        <div class="tool-icon tool-icon-teal">🛡️</div>
+        <div class="tool-name">Prompt Veiligheidscheck</div>
+        <p class="tool-desc">Plak een AI-prompt in en ontvang een analyse van risico's, kwetsbaarheden en een verbeterde versie. Gebaseerd op de OWASP LLM Top 10.</p>
+        <span class="badge badge-free">Gratis</span>
+      </div>
+
+      <div class="tool-card tool-card-free">
+        <div class="tool-icon tool-icon-teal">📄</div>
+        <div class="tool-name">Content Outline Generator</div>
+        <p class="tool-desc">Geef een onderwerp en doelgroep op. Je ontvangt een volledige inhoudsstructuur met koppen, kernpunten en zoekwoorden.</p>
+        <span class="badge badge-free">Gratis</span>
+      </div>
+
+      <div class="tool-card tool-card-free">
+        <div class="tool-icon tool-icon-teal">🔍</div>
+        <div class="tool-name">AI Onderzoeksassistent</div>
+        <p class="tool-desc">Stel een vraag, ontvang een onderbouwd antwoord met bronvermelding. Geen lijst zoekresultaten, maar een helder overzicht van wat er bekend is.</p>
+        <span class="badge badge-free">Gratis</span>
+      </div>
+
+    </div>
+
+    <div class="tools-label" style="margin-top:2rem;">Beschikbaar vanaf Basis-abonnement</div>
+    <div class="tools-grid">
+
+      <div class="tool-card tool-card-paid">
+        <div class="tool-icon tool-icon-gold">📢</div>
+        <div class="tool-name">Content Blitz</div>
+        <p class="tool-desc">Geef drie kernboodschappen op. Je ontvangt per boodschap een LinkedIn-post, e-mailintro, social caption en blog-opening. Klaar in minder dan een minuut.</p>
+        <span class="badge badge-paid">Basis &amp; hoger</span>
+      </div>
+
+      <div class="tool-card tool-card-paid">
+        <div class="tool-icon tool-icon-gold">⚖️</div>
+        <div class="tool-name">Expert Vergelijker</div>
+        <p class="tool-desc">Vergelijk twee aanpakken, methodes of specialisten op een onderwerp. Zie waar ze overeenkomen, waar ze verschillen, en welke het beste bij jou past.</p>
+        <span class="badge badge-paid">Basis &amp; hoger</span>
+      </div>
+
+      <div class="tool-card tool-card-paid">
+        <div class="tool-icon tool-icon-gold">🔒</div>
+        <div class="tool-name">Website Compliance Scan</div>
+        <p class="tool-desc">Scan je website op GDPR-naleving, beveiligingsinstellingen, SEO-structuur en toegankelijkheid. Leesbaar rapport met concrete verbeterpunten.</p>
+        <span class="badge badge-paid">Basis &amp; hoger</span>
+      </div>
+
+      <div class="tool-card tool-card-paid">
+        <div class="tool-icon tool-icon-gold">📅</div>
+        <div class="tool-name">Afspraak Inplannen</div>
+        <p class="tool-desc">Plan direct een afspraak in via een koppeling met Google Agenda. Je ziet beschikbaarheid in realtime en bevestiging gaat automatisch.</p>
+        <span class="badge badge-paid">Basis &amp; hoger</span>
+      </div>
+
+    </div>
+
+    <div class="api-bar">
+      <div class="api-bar-title">In ontwikkeling: transcriptie en branche-specifieke tools</div>
+      <p class="api-bar-text">Audio- en video-transcriptie met tijdstempels en samenvatting, plus op maat gemaakte tools per sector, worden toegevoegd in de komende maanden. Abonnees krijgen automatisch toegang zodra ze live gaan.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-bg" id="prijzen">
+  <div class="pricing-inner">
+    <div class="section-eyebrow" style="color:var(--teal);">Tarieven</div>
+    <h2 class="pricing-title">Begin gratis. Betaal als je meer wil.</h2>
+    <p class="pricing-lead">Maandelijks opzegbaar. Geen verborgen kosten. Geen lange contracten.</p>
+
+    <div class="pricing-grid">
+
+      <!-- FREE -->
+      <div class="price-card">
+        <div class="price-tier">Gratis</div>
+        <div class="price-amount"><sup>€</sup>0</div>
+        <div class="price-period">voor altijd</div>
+        <ul class="price-features">
+          <li>Prompt Veiligheidscheck</li>
+          <li>Content Outline Generator</li>
+          <li>AI Onderzoeksassistent</li>
+          <li>Geen account nodig</li>
+          <li class="muted">Content Blitz</li>
+          <li class="muted">Expert Vergelijker</li>
+          <li class="muted">Compliance Scan</li>
+          <li class="muted">Agenda-koppeling</li>
+        </ul>
+        <a href="#tools" class="btn-outline-white">Direct starten</a>
+      </div>
+
+      <!-- BASIS -->
+      <div class="price-card price-card-featured">
+        <div class="price-featured-tag">Meest gekozen</div>
+        <div class="price-tier">Basis</div>
+        <div class="price-amount"><sup>€</sup>29</div>
+        <div class="price-period">per maand, excl. btw</div>
+        <ul class="price-features">
+          <li>Alles uit Gratis</li>
+          <li>Content Blitz</li>
+          <li>Expert Vergelijker</li>
+          <li>Website Compliance Scan</li>
+          <li>Afspraak inplannen (Agenda)</li>
+          <li>Nieuwe tools direct beschikbaar</li>
+          <li class="muted">Transcriptie (binnenkort)</li>
+          <li class="muted">Branche-tools (binnenkort)</li>
+        </ul>
+        <div class="email-input-wrap">
+          <input type="email" id="email-basis" placeholder="jow@emailadres.nl" required>
+          <button class="btn-teal" onclick="startCheckout('basis')">Abonnement starten</button>
+        </div>
+      </div>
+
+      <!-- COMPLEET -->
+      <div class="price-card">
+        <div class="price-tier">Compleet</div>
+        <div class="price-amount"><sup>€</sup>79</div>
+        <div class="price-period">per maand, excl. btw</div>
+        <ul class="price-features">
+          <li>Alles uit Basis</li>
+          <li>Transcriptie (zodra beschikbaar)</li>
+          <li>Branche-specifieke tools</li>
+          <li>Prioriteit bij nieuwe tools</li>
+          <li>Directe e-mailondersteuning</li>
+        </ul>
+        <div class="email-input-wrap">
+          <input type="email" id="email-compleet" placeholder="jouw@emailadres.nl" required>
+          <button class="btn-outline-white" onclick="startCheckout('compleet')">Compleet abonnement</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-size:0.8rem; color:rgba(255,255,255,0.3); margin-top:1.5rem; text-align:center;">
+      Betaling via Stripe. iDEAL en creditcard worden ondersteund. Maandelijks opzegbaar via je accountpagina.
+    </p>
+  </div>
+</section>
+
+<!-- CALENDAR CTA -->
+<section class="calendar-section">
+  <h2>Wil je eerst zien hoe het werkt?</h2>
+  <p>Plan een vrijblijvend gesprek in. Ik laat je zien welke tool het beste bij jouw werkzaamheden past.</p>
+  <a href="#agenda" class="btn-dark">Afspraak inplannen</a>
+</section>
+
+<!-- AGENDA WIDGET PLACEHOLDER -->
+<section class="section" id="agenda" style="background: var(--white);">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-eyebrow">Direct inplannen</div>
+    <h2 class="section-title">Kies een moment</h2>
+    <p class="section-lead" style="margin:0 auto 2rem;">Geen e-mail heen en weer. Kiezz jelf een moment dat past.</p>
+    <!-- Calendar Booking widget embed komt hier -->
+    <div id="booking-widget" style="max-width:640px; margin:0 auto; border:1px solid var(--border); border-radius:8px; padding:2rem; background:var(--bg); color:var(--mid); font-size:0.9rem;">
+      📅 Koppel hier de Calendar Booking widget vanuit app.stroomlijn.nu.<br>
+      <small style="color:var(--muted);">Ga naar Tools &gt; Calendar Booking &gt; kopieer de embed-code en plak die hier.</small>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-bg">
+  <div class="faq-inner">
+    <div class="section-eyebrow">Vragen</div>
+    <h2 class="section-title" style="margin-bottom:1.5rem;">Veelgestelde vragen</h2>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is dit veilig voor mijn bedrijfsgegevens?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        De tools zijn gebouwd op een privacygericht platform. Invoer wordt niet opgeslagen of gebruikt voor trainingsdata. Voor gevoelige informatie geldt altijd het advies om geen namen of klantgegevens in te voeren. De privacyverklaring vind je onderaan de pagina.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Moet ik verstand hebben van AI om dit te gebruiken?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Nee. De tools zijn gebouwd voor mensen die gewoon iets gedaan willen krijgen. Je voert in wat je weet, de tool doet de rest.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Kan ik een tool laten bouwen voor mijn eigen bedrijf?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Ja. Dit is precies wat STROOMLIJN doet voor klanten. Plan een gesprek via de knop hierboven voor een vrijblijvend gesprek over wat er mogelijk is voor jouw situatie.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Hoe zeg ik op?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Maandelijks opzegbaar via je accountpagina. Geen verborgen kosten, geen opzegtermijn. Na opzegging heb je toegang tot het einde van de betaalperiode.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Welke betaalmethoden worden geaccepteerd?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Betaling verloopt via Stripe. iDEAL, creditcard en andere gangbare betaalmethoden worden ondersteund.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Wat als er een nieuwe tool bij komt?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Alle nieuwe tools die binnen jouw abonnement vallen, zijn direct beschikbaar. Je hoeft niets extra te doen. Compleet-abonnees krijgen altijd als eerste toegang tot nieuwe tools.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <h2>Wil je dit voor je eigen bedrijf?</h2>
+  <p>STROOMLIJN bouwt op maat gemaakte AI-tools en werkstromen voor bedrijven en teams in Noord-Nederland en landelijk online.</p>
+  <a href="mailto:info@tjimka.nl" class="btn-teal" style="display:inline-block; width:auto; padding:0.85rem 2rem;">Neem contact op</a>
+</section>
+
+<footer>
+  <p>© 2026 STROOMLIJN – Tjimka Bakker &nbsp;·&nbsp; KvK 57904561</p>
+  <div class="footer-links">
+    <a href="https://stroomlijn.nu">stroomlijn.nu</a>
+    <a href="mailto:info@tjimka.nl">info@tjimka.nl</a>
+    <a href="#">Privacyverklaring</a>
+    <a href="#">Algemene voorwaarden</a>
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
